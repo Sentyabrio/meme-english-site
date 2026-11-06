@@ -1,0 +1,12 @@
+name: Проверка hidden.json
+on:
+  push:
+    paths: [hidden.json, tools/check_hidden.py]
+  pull_request:
+    paths: [hidden.json, tools/check_hidden.py]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/check_hidden.py hidden.json
